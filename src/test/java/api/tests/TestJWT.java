@@ -11,6 +11,8 @@ import static io.restassured.RestAssured.given;
 
 public class TestJWT {
 
+
+
     String URL = "http://85.192.34.140:8080/";
 
     @Test
@@ -39,6 +41,7 @@ public class TestJWT {
 
         Assertions.assertEquals(gamesTitle,"Aerodynamic Bronze Shoes");
 
+        System.out.println("test commit");
 
 
     }
