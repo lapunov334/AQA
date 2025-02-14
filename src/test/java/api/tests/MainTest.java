@@ -140,7 +140,7 @@ public class MainTest {
                 .get("api/unknown/2")
                 .then()
                 .log().all()
-                .extract().jsonPath().getObject("data",UnknownSingleResource.cla);
+                .extract().jsonPath().getObject("data",UnknownSingleResource.class);
 
         Assertions.assertEquals(year, unRes.getYear());
 
