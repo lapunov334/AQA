@@ -1,5 +1,6 @@
 package api.tests;
 import api.pojoClasses.*;
+import com.codeborne.selenide.conditions.webdriver.Url;
 import org.awaitility.Awaitility;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -125,5 +126,24 @@ public class MainTest {
 
                     Assertions.assertTrue(listUsers.stream().allMatch(x->x.getAvatar().endsWith(checkJpg)));
                 });
+    }
+
+
+    @Test
+    public void SingleResource(){
+        Specifications.installSpecification(Specifications.requestSpec(URL), Specifications.responseSpec200());
+
+        int year = 2001;
+
+        UnknownSingleResource unRes = given()
+                .when()
+                .get("api/unknown/2")
+                .then()
+                .log().all()
+                .extract().jsonPath().getObject("data",UnknownSingleResource.class);
+
+        Assertions.assertEquals(year, unRes.getYear());
+
+
     }
 }
