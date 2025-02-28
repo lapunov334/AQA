@@ -1,11 +1,16 @@
 package api.tests;
 import api.pojoClasses.*;
-import com.codeborne.selenide.conditions.webdriver.Url;
 import org.awaitility.Awaitility;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import api.specification.Specifications;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
@@ -33,7 +38,6 @@ public class MainTest {
 
         List<Integer> years = listResources.stream().map(ListResources::getYear).collect(Collectors.toList());
         List<Integer> sortedYear = years.stream().sorted().collect(Collectors.toList());
-
         System.out.println(years);
 
         System.out.println(sortedYear);

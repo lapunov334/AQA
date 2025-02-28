@@ -25,7 +25,7 @@ public class ProductsPage {
         List<Double> cardList = new ArrayList<>();
 
         for(SelenideElement elements : productCards ){
-            String onlyPrice = elements.getText().replaceAll("[^\\d.]", "");
+            String onlyPrice = elements.getText().replaceAll("[^\\d.]", ""); //оставляет только циры + точку
 
             cardList.add(Double.parseDouble(onlyPrice));
         }
